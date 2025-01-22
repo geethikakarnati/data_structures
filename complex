@@ -1,0 +1,41 @@
+#include <stdio.h>
+struct Complex {
+float realPart;
+float imagPart;
+};
+struct Complex addComplex(struct Complex num1, struct Complex
+num2) {
+struct Complex result;
+result. realPart = num1. realPart + num2. realPart;
+result. imagPart = num1. imagPart + num2. imagPart;
+return result;
+}
+struct Complex multiplyComplex(struct Complex num1, struct
+Complex num2) {
+struct Complex result;
+result. realPart = (num1. realPart * num2. realPart) - (num1.
+imagPart * num2. imagPart);
+result. imagPart = (num1. realPart * num2. imagPart) + (num1.
+imagPart * num2. realPart);
+return result;
+}
+void displayComplex(struct Complex number) {
+printf("%.2f + %.2fi\n", number. realPart, number. imagPart);
+}
+int main() {
+struct Complex complexNum1, complexNum2, sumResult,
+productResult;
+printf("Input details for Complex Number 1 (real imag): ");
+scanf("%f %f", &complexNum1. realPart, &complexNum1.
+imagPart);
+printf("Input details for Complex Number 2 (real imag): ");
+scanf("%f %f", &complexNum2. realPart, &complexNum2.
+imagPart);
+sumResult = addComplex(complexNum1, complexNum2);
+productResult = multiplyComplex(complexNum1, complexNum2);
+printf("\nSum of Complex Numbers:\n");
+displayComplex(sumResult);
+printf("\nProduct of Complex Numbers:\n");
+displayComplex(productResult);
+return 0;
+}
